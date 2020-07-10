@@ -19,4 +19,5 @@ This is a GPU-based program to for parallel colocation mining [1,2]
 ### References
 
 [1] Arpan Man Sainju, Danial Aghajarian, Zhe Jiang, & Sushil K Prasad, (2018). Parallel grid-based colocation mining algorithms on GPUs for big spatial event data. IEEE Transactions on Big Data.
+
 [2] Arpan Ma Sainju, and Zhe Jiang. "Grid-based colocation mining algorithms on gpu for big spatial event data: A summary of results." International Symposium on Spatial and Temporal Databases. Springer, Cham, 2017.
