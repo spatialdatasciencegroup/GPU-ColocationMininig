@@ -15,10 +15,6 @@
 
 #define PRINT_TIMES 0
 
-#define pi 3.14159265358979323846
-static const double DEG_TO_RAD = 0.017453292519943295769236907684886;
-static const double EARTH_RADIUS_IN_METERS = 6372797.560856;
-
 using namespace boost;
 using namespace std;
 
@@ -47,18 +43,12 @@ colocationFinder::colocationFinder(void) {
 colocationFinder::~colocationFinder(void) {
 	featureTypes.clear();
 	featureTypes.shrink_to_fit();
-	//delete[] instanceList;
-	//cudaFreeHost(instanceList);
 	free(instanceList);
 	delete[] featureInstanceStart;
 	delete[] featureInstanceEnd;
 	delete[] featureInstanceCount;
-	//cudaFreeHost(instanceLocationX);
 	free(instanceLocationX);
-	//cudaFreeHost(instanceLocationY);
 	free(instanceLocationY);
-	//delete[] instanceLocationX;
-	//delete[] instanceLocationY;
 	h_candiColocations.clear();
 	h_candiColocations.shrink_to_fit();
 	cudaFree(d_candiColocations);
@@ -271,7 +261,7 @@ void colocationFinder::degree2Processing() {
 	memoryTracker = 0;
 	vector<Real> upperboundList;
 	vector<Real> PIList;
-        candiColocCounter = featureTypes.size() * (featureTypes.size() - 1) / 2;
+    candiColocCounter = featureTypes.size() * (featureTypes.size() - 1) / 2;
 
 	Integer degree = 2;
 	totalCandidatePatterns += candiColocCounter;
