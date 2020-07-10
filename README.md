@@ -1,4 +1,4 @@
-# CPU Colocation
+# GPU Colocation
 
 This is a GPU-based program to for parallel colocation mining [1,2]
 
