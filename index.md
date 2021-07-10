@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+## Introduction
 
-You can use the [editor on GitHub](https://github.com/spatialdatasciencegroup/GPU-ColocationMininig/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Given a set of spatial features and their instances, co-location mining aims to find subsets of features whose instances are frequently located together. Examples of colocation patterns include symbiotic relationships between species such as Nile Crocodiles and Egyptian Plover, as well as environmental factors and disease events (e.g., air pollution and lung cancer). 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Colocation mining is important in many applications that aim to find  associations between different spatial events or factors. For example, in public safety, law enforcement agencies are interested in finding relationships between different crime event types and potential crime generators. In ecology, scientists analyze common spatial footprints of various species to capture their interactions and spatial distributions. In public health, identifying relationships between human disease and potential environmental causes is an important problem. In climate science, colocation patterns help reveal relationships between the occurrence of different climate extreme events. In location based service, colocation patterns help identify travelers that share the same favourite locations to promote effective tour recommendation. 
 
-### Markdown
+Mining colocation patterns from big spatial event data poses several computational challenges. First, in order to evaluate if a candidate colocation pattern is prevalent, we need to generate its instances. This is computationally expensive due to checking spatial neighborhood relationships between different instances,  particularly when the number of instances is large and instances are clumpy (e.g., many instances are within the same spatial neighborhoods). Second, the number of candidate colocation patterns are exponential to the number of spatial features. Evaluating a large number of candidate patterns can be computationally prohibitive. Finally, the distribution of event instances in the space may be uneven, making it hard to design parallel data structure and algorithms.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Colocation pattern mining has been studied extensively in the literature, including early work on spatial association rule mining and colocation patterns based on event-centric model. Various algorithms have been proposed to efficiently identify colocation patterns, including Apriori generator and multi-resolution upper bound filter, partial join and joinless approach, iCPI tree based colocation mining algorithms. There are also works on identifying regional or zonal colocation patterns, and statistically significant colocation patterns, top-K prevalent colocation patterns or prevalent patterns without thresholding. 
+Existing algorithms are mostly sequential, and can be insufficient when the number of event instances is very large (e.g., several millions). 
+Parallel colocation mining algorithms are relatively less studied. 
 
-```markdown
-Syntax highlighted code block
+We propose GPU colocation mining algorithms based on a grid index, including a cell-aggregate-based upper bound filter and two refinement algorithms. Proposed cell-aggregate-based filter is easier to implement in parallel on GPU and is also insensitive to pattern clumpiness (the average number of overlaying colocation instances for a given colocation instance) compared with the existing multi-resolution filter. We also conducted further GPU optimization, as well as detailed theoretical analysis and experimental evaluations.
 
-# Header 1
-## Header 2
-### Header 3
+## Source Codes
+- GPU Colocation Mining: [Github Repository](https://github.com/spatialdatasciencegroup/GPU-ColocationMininig)
+- CPU Sequential Implementation: [Github Repository](https://github.com/spatialdatasciencegroup/CPU_Colocation)
+- CPU Multicore (OpenMP) Version: [Github Repository] (https://github.com/spatialdatasciencegroup/OpenMP_Colocation)
 
-- Bulleted
-- List
+## Publications
+- Arpan Man Sainju, Zhe Jiang. "Grid-based Co-location Mining Algorithms on GPU for Big Spatial Event Data: A Summary of Results". International Symposium on Spatial and Temporal Databases (SSTD), 2017 [PDF](https://www.jiangteam.org/papers/SSTD2017.pdf)
+- Arpan Man Sainju, Daniel Aghajarian, Zhe Jiang, Sushil Prasad, "Parallel Grid-based Colocation Mining Algorithms on GPUs for Big Spatial Event Data", IEEE Transactions on Big Data (TBD), 2018 [PDF](https://www.jiangteam.org/papers/TBD2018.pdf)
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/spatialdatasciencegroup/GPU-ColocationMininig/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
