@@ -15,7 +15,7 @@ We propose GPU colocation mining algorithms based on a grid index, including a c
 ## Source Codes
 - GPU Colocation Mining: [Github Repository](https://github.com/spatialdatasciencegroup/GPU-ColocationMininig)
 - CPU Sequential Implementation: [Github Repository](https://github.com/spatialdatasciencegroup/CPU_Colocation)
-- CPU Multicore (OpenMP) Version: [Github Repository] (https://github.com/spatialdatasciencegroup/OpenMP_Colocation)
+- CPU Multicore (OpenMP) Version: [Github Repository](https://github.com/spatialdatasciencegroup/OpenMP_Colocation)
 
 ## Publications
 - Arpan Man Sainju, Zhe Jiang. "Grid-based Co-location Mining Algorithms on GPU for Big Spatial Event Data: A Summary of Results". International Symposium on Spatial and Temporal Databases (SSTD), 2017 [PDF](https://www.jiangteam.org/papers/SSTD2017.pdf)
